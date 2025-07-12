@@ -1,0 +1,27 @@
+<!-- Step 3 Add Header -->
+ <%- include("partials/header.ejs") %>
+
+
+<!-- Step 2 - If an adjective and noun are sent to this ejs file, 
+    Change the h1 to show the adjective and noun.
+    But when the user first goes on the website and there is no adjective and noun, 
+    Show the default h1 below -->
+  
+  <%if (locals.generator){%> <!-- to check if the generated band name exist from the index.js-->
+    <h1>Your New band name is</h1>
+    <h1> <%= generator %> </h1>
+  <%}else {%>
+    <h1>Click to generate your band name</h1>
+  <%}%>
+
+<form action="/submit" method="POST">
+  <input type="submit" value="Generate Name">
+</form>
+<!-- Step 3 Add Footer -->
+
+<%- include("partials/footer.ejs") %>
+
+<!-- note i can pass variable i would want to use in my footer.ejs via the include code 
+ e.g <%#- include("partials/footer.ejs", { currentYear: currentYear }) %>
+or can still use locals. inside the footer.ejs file-->
+
